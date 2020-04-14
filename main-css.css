@@ -1,0 +1,116 @@
+body {
+    background-color: #202020;
+    color: white;
+}
+header {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background-color: #202020;
+    width: 100vw;
+    height: 60px;
+    z-index: 1;
+}
+
+#title {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    color: white;
+    background-image: linear-gradient(135deg, #667eea, #764ba2);
+    height: 40px;
+    width: 200px;
+    z-index: 2;
+    margin: auto;
+    padding: 10px;
+    text-align: center;
+    z-index: 2;
+}
+
+form {
+    position: absolute;
+    top: 60px;
+    left: 0px;
+    background-image: linear-gradient(135deg, #667eea, #764ba2);
+    margin: auto;
+    width: 25vw;
+    padding: 20px;
+    border-color: white;
+    border-width: 15px;
+    z-index: 3;
+}
+
+#trip_type_div {
+    display: flex;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+#trip_type_ow {
+    align-self: flex-start;
+    margin-top:;
+}
+
+#trip_type_ret {
+    margin-left: 50px;
+}
+
+#dates_div {
+    display: flex;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+#return_date_label {
+    margin-left: 50px;
+}
+
+.dates {
+    margin-top: 10px;
+}
+
+#src_des {
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    margin-top: 5px;
+}
+
+#des_label {
+    margin-top: 25px;
+}
+
+.src_des{
+    margin-top: 10px;
+}
+
+select {
+    width: 15vw;
+}
+
+[type="date"] {
+    height: 10px;
+}
+
+#submit_div {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+button {
+    color: #FFF;
+    font-size: 16px;
+    font-weight: 800;
+    padding: 10px;
+    border-radius: 15px;
+    border-width: 0px;
+}
+
+.submit_button {
+    background-image: linear-gradient(45deg, #ADD100, #7B920A);
+    transition-duration: 0.2s;
+}
+
+.submit_button:hover { 
+    transform: scale(1.05);
+}

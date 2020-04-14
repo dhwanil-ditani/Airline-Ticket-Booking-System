@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="main-css.css">
+    <title>main.</title>
+</head>
+<body>
+    <header>&nbsp;</header>
+
+    <h1 id="title" >fafdaAIR</h1>
+
+    <form action="" method="POST">
+        <div name="trip_type_div" id="trip_type_div">
+            <label for="trip_type"><input type="radio" name="trip_type" id="trip_type_ow" class="trip_type_cl" value="one_way" required checked> one way</label>
+            <label for="trip_type"><input type="radio" name="trip_type" id="trip_type_ret" class="trip_type_cl" value="return" required> return</label>
+        </div>
+        <div name="dates_div" id="dates_div">
+            <label id="depart_date_label" for="depart_date">Depart date:<br><input type="date" id="depart_date" name="depart_date" class="dates" required></label>
+            <label id="return_date_label" for="return_date">Return date:<br><input type="date" id="return_date" name="return_date" class="dates" required></label>
+        </div>
+        <br>
+        <div id="src_des">
+            <label for="src" id="src_label">from:<br>
+            <select name="src" id="src" class="src_des" required>
+                <option disabled selected value="1">Choose city...</option>
+                <option name="AMD" id="AMD" value="Ahmedabad">Ahmedabad</option>
+                <option name="BLR" id="BLR" value="Banglore">Banglore</option>
+                <option name="MAA" id="MAA" value="Chennai">Chennai</option>
+                <option name="HYD" id="HYD" value="Hyderabad">Hyderabad</option>
+                <option name="JAI" id="JAI" value="Jaipur">Jaipur</option>
+                <option name="COK" id="COK" value="Kochi">Kochi</option>
+                <option name="CCU" id="CCU" value="Kolkata">Kolkata</option>
+                <option name="LKO" id="LKO" value="Lucknow">Lucknow</option>
+                <option name="BOM" id="BOM" value="Mumbai">Mumbai</option>
+                <option name="DEL" id="DEL" value="New Delhi">New Delhi</option>
+                <option name="PNY" id="PNY" value="Pondicherry">Pondicherry</option>
+                <option name="VNS" id="VNS" value="Varanasi">Varanasi</option>
+            </select></label>
+              
+            <label for="des" id="des_label">to:<br>
+            <select name="des" id="des" class="src_des" required>
+                <option disabled selected value="2">Choose city...</option>
+                <option name="AMD" id="AMD" value="Ahmedabad">Ahmedabad</option>
+                <option name="BLR" id="BLR" value="Banglore">Banglore</option>
+                <option name="MAA" id="MAA" value="Chennai">Chennai</option>
+                <option name="HYD" id="HYD" value="Hyderabad">Hyderabad</option>
+                <option name="JAI" id="JAI" value="Jaipur">Jaipur</option>
+                <option name="COK" id="COK" value="Kochi">Kochi</option>
+                <option name="CCU" id="CCU" value="Kolkata">Kolkata</option>
+                <option name="LKO" id="LKO" value="Lucknow">Lucknow</option>
+                <option name="BOM" id="BOM" value="Mumbai">Mumbai</option>
+                <option name="DEL" id="DEL" value="New Delhi">New Delhi</option>
+                <option name="PNY" id="PNY" value="Pondicherry">Pondicherry</option>
+                <option name="VNS" id="VNS" value="Varanasi">Varanasi</option>
+            </select></label>
+        </div>
+        <br>
+        <div id="submit_div"><button type="submit" id="submit_button" class="submit_button">search.</button></div>
+    </form>
+    <script src="main-js.js"></script>
+</body>
+</html>
