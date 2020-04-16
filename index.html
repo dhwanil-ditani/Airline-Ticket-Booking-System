@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Airline Ticket Booking</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            var username = "";
+            function loadSearch() {
+                $.get("search.html", function(data) {
+                    $("div.body").html(data);
+                });
+            }
+            function loadUser() {
+                if (username.length === 0) {
+                    $("div.logout").hide();
+                    $("#display_username").hide();
+                    $("div.login").show();
+                    $("div.signup").show();
+                }
+                else {
+                    $("div.logout").show();
+                    $("#display_username").show();
+                    $("div.login").hide();
+                    $("div.signup").hide();
+                }
+                $("#display_username").text("Welcome " + username);
+            }
+            function loadlogin() {
+                $.get("login.html", function(data) {
+                    $("div.body").html(data);
+                });
+            }
+            function loadsignup() {
+                $.get("SignUp.html", function(data) {
+                    $("div.body").html(data);
+                });
+            }
+
+            $(document).ready(function () {
+                $.get("logo.html", function(data) {
+                    $("div.logo").html(data);
+                });
+                loadSearch();
+                loadUser();
+                $("#login").click(function() {
+                    loadlogin();
+                    loadUser();
+                });
+                $("#signup").click(function() {
+                    loadsignup();
+                    loadUser();
+                });
+            });
+        </script>
+
+    </head>
+    <body>
+        <div class="TopBar">
+            <div class="logo"></div>
+            <div id="display_username"></div>
+            <div class="login">
+                <button type="button" name="login" value="login" id="login">Login</button>
+            </div>
+            <div class="signup">
+                <button type="button" name="signup" value="signup" id="signup">SignUp</button>
+            </div>
+            <div class="logout">
+                <button type="button" name="logout" value="logout" id="logout">Logout</button>
+            </div>
+        </div>
+        <div class="body"></div>
+    </body>
+</html>
