@@ -36,7 +36,9 @@ $("document").ready(function() {
         {
             depart_date: $("input[name='depart_date']").val(),
             src: $("select[name='src']").val(),
-            des: $("select[name='des']").val()
+            des: $("select[name='des']").val(),
+            trip_type: $("input[name='trip_type']:checked").val(),
+            return_date: $("input[name='return_date']").val()
         },
         function (data) {
             $("div.result").html(data);

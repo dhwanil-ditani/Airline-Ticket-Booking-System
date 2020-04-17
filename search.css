@@ -115,3 +115,15 @@ div.body .submit_button {
 div.body .submit_button:hover {
     transform: scale(1.05);
 }
+
+div.body #n_passengers {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+div.body #passengers {
+    width: 50px;
+    margin-top: 10px;
+}

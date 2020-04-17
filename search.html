@@ -2,8 +2,18 @@
 <script src="search.js"></script>
 <div class='form'>
     <div name="trip_type_div" id="trip_type_div">
-        <label for="trip_type"><input type="radio" name="trip_type" id="trip_type_ow" class="trip_type_cl" value="one_way" required checked> one way</label>
-        <label for="trip_type"><input type="radio" name="trip_type" id="trip_type_ret" class="trip_type_cl" value="return" required> return</label>
+        <label for="trip_type_ow"><input type="radio" name="trip_type" id="trip_type_ow" class="trip_type_cl" value="one_way" required checked> one way</label>
+        <label for="trip_type_ret"><input type="radio" name="trip_type" id="trip_type_ret" class="trip_type_cl" value="return" required> return</label>
+    </div>
+    <div name="n_passengers" id="n_passengers">
+        <label for="passengers" id="passengers_label">number of passengers: <br>
+        <select name="passengers" id="passengers" class="n_passengers" required>
+            <option value="1" selected>1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+        </label>
     </div>
     <div name="dates_div" id="dates_div">
         <label id="depart_date_label" for="depart_date">depart date:<br><input type="date" id="depart_date" name="depart_date" class="dates" required></label>
