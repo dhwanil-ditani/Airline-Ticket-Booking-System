@@ -19,10 +19,12 @@ if ($trip_type == "return") {
         echo "
         <style> 
         div.ticket { 
-            background-color: red; 
+            background-color: #202020; 
             width: 75vw; 
-            margin: 0 auto; 
-            border-radius: 15px; 
+            margin: 7.5px auto; 
+            border-radius: 25px;
+            padding: 20px;
+            background-image: radial-gradient( circle 523px at 7.1% 19.3%,  rgba(147,15,255,1) 2%, rgba(5,49,255,1) 100.7% );
         } </style>";
         
         echo "<h3>flights from $src to $des.</h3>";
@@ -63,10 +65,12 @@ if ($trip_type == "return") {
         echo "
         <style> 
         div.ticket { 
-            background-color: red; 
+            background-color: #202020; 
             width: 75vw; 
-            margin: 0 auto; 
-            border-radius: 15px; 
+            margin: 7.5px auto; 
+            border-radius: 25px;
+            padding: 20px;
+            background-image: radial-gradient( circle 523px at 7.1% 19.3%,  rgba(147,15,255,1) 2%, rgba(5,49,255,1) 100.7% );
         } </style>";
         
         echo "<h3>flights from $src to $des.</h3>";

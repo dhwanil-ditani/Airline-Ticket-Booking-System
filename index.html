@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>Airline Ticket Booking</title>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script type="text/javascript">
             var username = "";
@@ -24,7 +25,7 @@
                     $("div.login").hide();
                     $("div.signup").hide();
                 }
-                $("#display_username").text("Welcome " + username);
+                $("#display_username").text(username);
             }
             function loadlogin() {
                 $.get("login.html", function(data) {
@@ -59,25 +60,56 @@
             });
         </script>
         <style>
+            * {
+                font-family: 'Inter', sans-serif;
+            }
+            
             body {
                 background-color: #202020;
+            }
+
+            div.TopBar {
+                display: flex;
+                position: absolute;
+                top: 20px;
+                right: 10px;
+                color: white;
+            }
+
+            div.TopBar button {
+                margin: 0 10px;
+                background-color: #202020;
+                border-width: 0px;
+                font-weight: 400;
+                font-size: 15px;
+                transition-duration: 0.2s;
+                color: white;
+            }
+
+            div.TopBar button:hover {
+                transform: scale(1.05);
+                font-weight: 800;
+            }
+
+            div.TopBar #display_username {
+                font-weight: 600;
             }
         </style>
     </head>
     <body>
+        <div class="logo"></div>
         <div class="TopBar">
-            <div class="logo"></div>
             <div id="display_username"></div>
             <div class="login">
-                <button type="button" name="login" value="login" id="login">Login</button>
+                <button type="button" name="login" value="login" id="login">LOGIN</button>
             </div>
             <div class="signup">
-                <button type="button" name="signup" value="signup" id="signup">SignUp</button>
+                <button type="button" name="signup" value="signup" id="signup">SIGN UP</button>
             </div>
             <div class="logout">
-                <button type="button" name="logout" value="logout" id="logout">Logout</button>
+                <button type="button" name="logout" value="logout" id="logout">LOGOUT</button>
             </div>
         </div>
-        <div class="body"></div>
+        <div class="body" style="margin-top: 50px;"></div>
     </body>
 </html>

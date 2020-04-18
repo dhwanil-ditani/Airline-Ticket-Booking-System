@@ -2,26 +2,12 @@
 <script src="search.js"></script>
 <div class='form'>
     <div name="trip_type_div" id="trip_type_div">
-        <label for="trip_type_ow"><input type="radio" name="trip_type" id="trip_type_ow" class="trip_type_cl" value="one_way" required checked> one way</label>
-        <label for="trip_type_ret"><input type="radio" name="trip_type" id="trip_type_ret" class="trip_type_cl" value="return" required> return</label>
+        <label for="trip_type_ow"><input type="radio" name="trip_type" id="trip_type_ow" class="trip_type_cl" value="one_way" required checked> ONE WAY</label>
+        <label for="trip_type_ret"><input type="radio" name="trip_type" id="trip_type_ret" class="trip_type_cl" value="return" required> RETURN</label>
     </div>
-    <div name="n_passengers" id="n_passengers">
-        <label for="passengers" id="passengers_label">number of passengers: <br>
-        <select name="passengers" id="passengers" class="n_passengers" required>
-            <option value="1" selected>1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-        </select>
-        </label>
-    </div>
-    <div name="dates_div" id="dates_div">
-        <label id="depart_date_label" for="depart_date">depart date:<br><input type="date" id="depart_date" name="depart_date" class="dates" required></label>
-        <label id="return_date_label" for="return_date">return date:<br><input type="date" id="return_date" name="return_date" class="dates" required></label>
-    </div>
-    <br>
+    <div id="mid_bar">
     <div id="src_des">
-        <label for="src" id="src_label">from:<br>
+        <label for="src" id="src_label">FROM<br>
         <select name="src" id="src" class="src_des" required>
             <option disabled selected value="1">Choose city...</option>
             <option name="AMD" id="AMD" value="Ahmedabad">Ahmedabad</option>
@@ -37,8 +23,7 @@
             <option name="PNY" id="PNY" value="Pondicherry">Pondicherry</option>
             <option name="VNS" id="VNS" value="Varanasi">Varanasi</option>
         </select></label>
-
-        <label for="des" id="des_label">to:<br>
+        <label for="des" id="des_label">TO<br>
         <select name="des" id="des" class="src_des" required>
             <option disabled selected value="2">Choose city...</option>
             <option name="AMD" id="AMD" value="Ahmedabad">Ahmedabad</option>
@@ -55,6 +40,23 @@
             <option name="VNS" id="VNS" value="Varanasi">Varanasi</option>
         </select></label>
     </div>
+    <div name="n_passengers" id="n_passengers">
+        <label for="passengers" id="passengers_label">PASSENGERS<br>
+        <select name="passengers" id="passengers" class="n_passengers" required>
+            <option value="1" selected>One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+            <option value="4">Four</option>
+        </select>
+        </label>
+    </div>
+    <div name="dates_div" id="dates_div">
+        <label id="depart_date_label" for="depart_date">DEPART DATE<br><input type="date" id="depart_date" name="depart_date" class="dates" required></label>
+        <label id="return_date_label" for="return_date">RETURN DATE<br><input type="date" id="return_date" name="return_date" class="dates" required></label>
+    </div>
+    </div>
+    <br>
+    
     <br>
     <div id="submit_div"><button type="submit" id="submit_button" class="submit_button">search.</button></div>
 </div>
