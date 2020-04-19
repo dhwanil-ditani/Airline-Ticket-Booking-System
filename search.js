@@ -36,16 +36,15 @@ $("document").ready(function() {
             $(this).prop("disabled", false);
         });
         $("#src").each(function() {
-            if ($(this).prop("id") != thisID) {
+            // if ($(this).prop("id") != thisID) {
                 $("option[value='" + selected_des + "']", $(this)).prop("disabled", true);
-            }
+            // }
         });
         $("#des").each(function() {
-            if ($(this).prop("id") != thisID) {
+            // if ($(this).prop("id") != thisID) {
                 $("option[value='" + selected_src + "']", $(this)).prop("disabled", true);
-            }
+            // }
         });
-
     });
     $("#submit_button").click(function () {
         // console.log($("input[name='trip_type']:checked").val());
