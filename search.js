@@ -36,20 +36,29 @@ $("document").ready(function() {
             $(this).prop("disabled", false);
         });
         $("#src").each(function() {
-            // if ($(this).prop("id") != thisID) {
                 $("option[value='" + selected_des + "']", $(this)).prop("disabled", true);
-            // }
         });
         $("#des").each(function() {
-            // if ($(this).prop("id") != thisID) {
                 $("option[value='" + selected_src + "']", $(this)).prop("disabled", true);
-            // }
         });
     });
+
+    date1 = $("#depart_date").val();
+    date2 = $("#return_date").val();
+    document.getElementById("submit_button").disabled = true; 
+    $(".dates").change(function() {
+        date1 = $("#depart_date").val();
+        date2 = $("#return_date").val();
+        ret_disabled = $("#return_date").prop("disabled");
+        if(Date.parse(date1) > Date.parse(date2) && !ret_disabled) {
+            alert("Invalid dates. Please try again.");
+            document.getElementById("submit_button").disabled = true; 
+        } else {
+            document.getElementById("submit_button").disabled = false; 
+        }
+    });
+
     $("#submit_button").click(function () {
-        // console.log($("input[name='trip_type']:checked").val());
-        // console.log($("input[name='depart_date']").val());
-        // console.log($("input[name='return_date']").val());
         $.post("search.php",
         {
             depart_date: $("input[name='depart_date']").val(),
