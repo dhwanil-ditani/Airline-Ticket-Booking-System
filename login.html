@@ -1,20 +1,4 @@
-<script type="text/javascript">
-    $("#submit").click(function() {
-        $.post("login.php",
-        {
-            username: $("#username").val(),
-            password: $("#password").val()
-        },
-        function(data) {
-            $("div.result").html(data);
-            username = $("#username").val();
-            loadUser();
-        });
-    });
-    $("#back").click(function () {
-        loadSearch();
-    });
-</script>
+<script src="Javascript/login.js"></script>
 
 <style>
 #login_page {

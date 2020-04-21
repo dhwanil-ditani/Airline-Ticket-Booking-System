@@ -70,15 +70,26 @@ $("document").ready(function() {
         function (data) {
             $("div.result").html("");
             $("div.passengers").html("");
+            $("div.book_now").html("");
             $("div.result").html(data);
             var trip_type = $("input[name='trip_type']:checked").val();
+            var book_now = document.createElement('button');
+            var button_text = document.createTextNode("Book Now");
+            book_now.id = 'book_now';
+            book_now.name = 'book_now';
+            book_now.value = 'book_now';
+            book_now.appendChild(button_text);
+            
             $("input[name='flight_go']").click(function () {
+                $("div.passengers").html("");
+                // $("div.book_now").html("");
                 if (trip_type == "return") {
                     if($("input[name='flight_ret']:checked").length > 0) {
                         var n_passengers = $("select[name='passengers']").val();
                         for (var i=0; i<n_passengers; i++) {
                             InsertPassenger(String(i));
                         }
+                        $("div.book_now").append(book_now);
                     }
                 }
                 else {
@@ -86,24 +97,26 @@ $("document").ready(function() {
                     for (var i=0; i<n_passengers; i++) {
                         InsertPassenger(String(i));
                     }
-                    // console.log($("input[name='flight_go']:checked").length);
+                    $("div.boo_now").append(book_now);
+                    
                 }
             });
 
             $("input[name='flight_ret']").click(function () {
+                $("div.passengers").html("");
+                // $("div.book_now").html("");
                 if($("input[name='flight_go']:checked").length > 0) {
                     var n_passengers = $("select[name='passengers']").val();
                     for (var i=0; i<n_passengers; i++) {
                         InsertPassenger(String(i));
                     }
+                    $("div.book_now").append(book_now);
                 }
             });
-            // var n_passengers = $("select[name='passengers']").val();
-            // for (var i=0; i<n_passengers; i++) {
-            //     InsertPassenger(String(i));
-            // }
-            // console.log($("input[name='flight_go']:checked").length);
+    
 
         });
+    });
+    $("#book_now").click(function (){
     });
 });

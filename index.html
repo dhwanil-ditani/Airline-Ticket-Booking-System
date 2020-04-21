@@ -5,60 +5,7 @@
         <title>Airline Ticket Booking</title>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script type="text/javascript">
-            var username = "";
-            function loadSearch() {
-                $.get("search.html", function(data) {
-                    $("div.body").html(data);
-                });
-            }
-            function loadUser() {
-                if (username.length === 0) {
-                    $("div.logout").hide();
-                    $("#display_username").hide();
-                    $("div.login").show();
-                    $("div.signup").show();
-                }
-                else {
-                    $("div.logout").show();
-                    $("#display_username").show();
-                    $("div.login").hide();
-                    $("div.signup").hide();
-                }
-                $("#display_username").text(username);
-            }
-            function loadlogin() {
-                $.get("login.html", function(data) {
-                    $("div.body").html(data);
-                });
-            }
-            function loadsignup() {
-                $.get("SignUp.html", function(data) {
-                    $("div.body").html(data);
-                });
-            }
-
-            $(document).ready(function () {
-                $.get("logo.html", function(data) {
-                    $("div.logo").html(data);
-                });
-                loadSearch();
-                loadUser();
-                $("#login").click(function() {
-                    loadlogin();
-                    loadUser();
-                });
-                $("#signup").click(function() {
-                    loadsignup();
-                    loadUser();
-                });
-
-                $("#logout").click(function() {
-                    username = "";
-                    loadUser();
-                });
-            });
-        </script>
+        <script src="Javascript/index.js"></script>
         <style>
             * {
                 font-family: 'Inter', sans-serif;

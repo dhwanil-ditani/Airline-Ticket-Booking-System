@@ -21,7 +21,8 @@ create table Flight (
     depart_date date not null,
     arrive_date date not null,
     airplane_name varchar(30) not null,
-    noOfSeats int not null
+    noOfSeats int not null,
+    amount decimal(7,2) not null
 );
 
 create table Seats (

@@ -35,6 +35,7 @@ if ($trip_type == "return") {
                 <p>" . $row['depart_time'] . " -> " . $row['arrive_time'] . "</p>
                 <p>" . $row['depart_date'] . " -> " . $row['arrive_date'] . "</p>
                 <p>$src -> $des</p>
+                <p>Price : ". $row['amount'] . "</p>
                 <label for='flight_go'><input type='radio' value='" . $row['F_id'] . "' name='flight_go' id='flight_go' required> select</label>
             </div>";
         }
@@ -52,6 +53,7 @@ if ($trip_type == "return") {
                 <p>" . $row['depart_time'] . " -> " . $row['arrive_time'] . "</p>
                 <p>" . $row['depart_date'] . " -> " . $row['arrive_date'] . "</p>
                 <p>$des -> $src</p>
+                <p>Price : ". $row['amount'] . "</p>
                 <label for='flight_ret'><input type='radio' value='" . $row['F_id'] . "' name='flight_ret' id='flight_ret' required> select</label>
             </div>";
         }
@@ -81,6 +83,7 @@ if ($trip_type == "return") {
                 <p>" . $row['depart_time'] . " -> " . $row['arrive_time'] . "</p>
                 <p>" . $row['depart_date'] . " -> " . $row['arrive_date'] . "</p>
                 <p>$src -> $des</p>
+                <p>Price : ". $row['amount'] . "</p>
                 <label for='flight_go'><input type='radio' value='" . $row['F_id'] . "' name='flight_go' id='flight_go' required> select</label>
             </div>";
         }

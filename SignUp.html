@@ -1,21 +1,4 @@
-<script>
-    $("#submit").click(function () {
-        $.post("SignUp.php",
-        {
-            username: $("#username").val(),
-            password: $("#password").val(),
-            email_id: $("#email_id").val()
-        },
-        function(data) {
-            $("div.result").html(data);
-            username = $("#username").val();
-            loadUser();
-        });
-    });
-    $("#back").click(function () {
-        loadSearch();
-    });
-</script>
+<script src="Javascript/SignUp.js"></script>
 
 <style>
     #signup_page {
@@ -72,7 +55,7 @@
         margin-top: 10px;
         height: 35px;
     }
-    </style>
+</style>
 
 <div id="signup_page">
     <div id="inputs">
