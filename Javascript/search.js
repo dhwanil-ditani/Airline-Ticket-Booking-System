@@ -17,6 +17,13 @@ function InsertPassenger(index) {
     Phone_No.className = c;
     $("div." + c).append("first_name: ", first_name, "last_name: ", last_name, "Phone_No: ", Phone_No);
 }
+
+function InsertBookNowButton() {
+    $("div.book_now").html("<button type='button' name='book_now' value='book_now' id='book_now'>Book Now</button>");
+    $("#book_now").click(function (){
+        loadpayment();
+    });
+}
 $("document").ready(function() {
     $("#return_date").prop('disabled', true);
     $('input[type="radio"]').change(function() {
@@ -82,14 +89,13 @@ $("document").ready(function() {
             
             $("input[name='flight_go']").click(function () {
                 $("div.passengers").html("");
-                // $("div.book_now").html("");
                 if (trip_type == "return") {
                     if($("input[name='flight_ret']:checked").length > 0) {
                         var n_passengers = $("select[name='passengers']").val();
                         for (var i=0; i<n_passengers; i++) {
                             InsertPassenger(String(i));
                         }
-                        $("div.book_now").append(book_now);
+                        InsertBookNowButton();
                     }
                 }
                 else {
@@ -97,26 +103,22 @@ $("document").ready(function() {
                     for (var i=0; i<n_passengers; i++) {
                         InsertPassenger(String(i));
                     }
-                    $("div.boo_now").append(book_now);
+                    InsertBookNowButton();
                     
                 }
             });
 
             $("input[name='flight_ret']").click(function () {
                 $("div.passengers").html("");
-                // $("div.book_now").html("");
                 if($("input[name='flight_go']:checked").length > 0) {
                     var n_passengers = $("select[name='passengers']").val();
                     for (var i=0; i<n_passengers; i++) {
                         InsertPassenger(String(i));
                     }
-                    $("div.book_now").append(book_now);
+                    InsertBookNowButton();
                 }
             });
-    
-
         });
     });
-    $("#book_now").click(function (){
-    });
+    
 });

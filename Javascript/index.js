@@ -1,4 +1,5 @@
 var username = "";
+var userid = 0;
 var password = "";
 var amount = 0;
 var passenger_ids = [];
@@ -26,12 +27,18 @@ function loadUser() {
     $("#display_username").text(username);
 }
 function loadlogin() {
-    $.get("login.html", function(data) {
+    $.get("login.html", function (data) {
         $("div.body").html(data);
     });
 }
 function loadsignup() {
-    $.get("SignUp.html", function(data) {
+    $.get("SignUp.html", function (data) {
+        $("div.body").html(data);
+    });
+}
+
+function loadpayment() {
+    $.get("payment.html", function (data) { 
         $("div.body").html(data);
     });
 }
