@@ -1,6 +1,12 @@
-<select name="mode">
+<script src="Javascript/payment.js"></script>
+<select name="mode" id="mode">
+    <option value="">Select a choice</option>
     <option value="credit card">Credit Card</option>
     <option value="debit card">Debit Card</option>
     <option value="netbanking">Net Banking</option>
     <option value="ewallets">E-Wallets</option>
-</select>
+</select><br>
+Amount: <input type="text" name="amount"><br>
+Userid: <input type="text" name="user_id"><br>
+<button name="pay" value="pay" id='pay'>Pay</button>
+<div class="result"></div>

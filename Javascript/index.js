@@ -1,10 +1,11 @@
 var username = "";
-var userid = 0;
+var user_id = 0;
 var password = "";
 var amount = 0;
 var passenger_ids = [];
 var flight_go = 0;
 var flight_ret = 0;
+var trip_type = "";
 
 function loadSearch() {
     $.get("search.html", function(data) {
@@ -41,6 +42,12 @@ function loadpayment() {
     $.get("payment.html", function (data) { 
         $("div.body").html(data);
     });
+}
+
+function checklogin() {
+    if (username.length == 0) {
+        loadlogin();
+    }
 }
 
 $(document).ready(function () {

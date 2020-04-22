@@ -31,11 +31,11 @@ if ($trip_type == "return") {
         
         while ($row = mysqli_fetch_assoc($result)) {
             echo "
-            <div id='ticket_go' class='ticket'>
-                <p>" . $row['depart_time'] . " -> " . $row['arrive_time'] . "</p>
-                <p>" . $row['depart_date'] . " -> " . $row['arrive_date'] . "</p>
-                <p>$src -> $des</p>
-                <p>Price : ". $row['amount'] . "</p>
+            <div id='ticket_go' class='ticket " . $row['F_id'] . "'>
+                <p><span class='depart_time " . $row['F_id'] . "'>" . $row['depart_time'] . "</span> -> <span class='arrive_time " . $row['F_id'] . "'>" . $row['arrive_time'] . "</span></p>
+                <p><span class='depart_date " . $row['F_id'] . "'>" . $row['depart_date'] . "</span> -> <span class='arrive_time " . $row['F_id'] . "'>" . $row['arrive_date'] . "</span></p>
+                <p><span class='src " . $row['F_id'] . "'>" . $row['src'] . "</span> -> <span class='des " . $row['F_id'] . "'>" . $row['des'] . "</span></p>
+                <p>Price : <span class='amount " . $row['F_id'] . "'>". $row['amount'] . "</span></p>
                 <label for='flight_go'><input type='radio' value='" . $row['F_id'] . "' name='flight_go' id='flight_go' required> select</label>
             </div>";
         }
@@ -49,11 +49,11 @@ if ($trip_type == "return") {
         echo "<h3>flights from $des to $src.</h3>";
         while ($row = mysqli_fetch_assoc($result)) {
             echo "
-            <div id='ticket_ret' class='ticket'>
-                <p>" . $row['depart_time'] . " -> " . $row['arrive_time'] . "</p>
-                <p>" . $row['depart_date'] . " -> " . $row['arrive_date'] . "</p>
-                <p>$des -> $src</p>
-                <p>Price : ". $row['amount'] . "</p>
+            <div id='ticket_ret' class='ticket " . $row['F_id'] . "'>
+                <p><span class='depart_time " . $row['F_id'] . "'>" . $row['depart_time'] . "</span> -> <span class='arrive_time " . $row['F_id'] . "'>" . $row['arrive_time'] . "</span></p>
+                <p><span class='depart_date " . $row['F_id'] . "'>" . $row['depart_date'] . "</span> -> <span class='arrive_time " . $row['F_id'] . "'>" . $row['arrive_date'] . "</span></p>
+                <p><span class='src " . $row['F_id'] . "'>" . $row['src'] . "</span> -> <span class='des " . $row['F_id'] . "'>" . $row['des'] . "</span></p>
+                <p>Price : <span class='amount " . $row['F_id'] . "'>". $row['amount'] . "</span></p>
                 <label for='flight_ret'><input type='radio' value='" . $row['F_id'] . "' name='flight_ret' id='flight_ret' required> select</label>
             </div>";
         }
@@ -76,14 +76,13 @@ if ($trip_type == "return") {
         } </style>";
         
         echo "<h3>flights from $src to $des.</h3>";
-        
         while ($row = mysqli_fetch_assoc($result)) {
             echo "
-            <div id='ticket_go' class='ticket'>
-                <p>" . $row['depart_time'] . " -> " . $row['arrive_time'] . "</p>
-                <p>" . $row['depart_date'] . " -> " . $row['arrive_date'] . "</p>
-                <p>$src -> $des</p>
-                <p>Price : ". $row['amount'] . "</p>
+            <div id='ticket_go' class='ticket " . $row['F_id'] . "'>
+                <p><span class='depart_time " . $row['F_id'] . "'>" . $row['depart_time'] . "</span> -> <span class='arrive_time " . $row['F_id'] . "'>" . $row['arrive_time'] . "</span></p>
+                <p><span class='depart_date " . $row['F_id'] . "'>" . $row['depart_date'] . "</span> -> <span class='arrive_time " . $row['F_id'] . "'>" . $row['arrive_date'] . "</span></p>
+                <p><span class='src " . $row['F_id'] . "'>" . $row['src'] . "</span> -> <span class='des " . $row['F_id'] . "'>" . $row['des'] . "</span></p>
+                <p>Price : <span class='amount " . $row['F_id'] . "'>". $row['amount'] . "</span></p>
                 <label for='flight_go'><input type='radio' value='" . $row['F_id'] . "' name='flight_go' id='flight_go' required> select</label>
             </div>";
         }
