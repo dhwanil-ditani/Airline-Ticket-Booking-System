@@ -3,6 +3,7 @@ create table Passengers (
     first_name varchar(20) not null,
     last_name varchar(20) not null,
     Phone_No decimal(10, 0) not null
+    unique (first_name, last_name, Phone_No);
 );
 
 create table Users (
