@@ -26,14 +26,14 @@ create table Flight (
     amount decimal(7,2) not null
 );
 
-create table Seats (
-	S_no int not null,
-    flight_id int not null,
-    class char not null,
-    position varchar(6) not null,
-    primary key (S_no, flight_id),
-    foreign key (flight_id) references Flight(F_id)
-);
+-- create table Seats (
+-- 	S_no int not null,
+--     flight_id int not null,
+--     class char not null,
+--     position varchar(6) not null,
+--     primary key (S_no, flight_id),
+--     foreign key (flight_id) references Flight(F_id)
+-- );
 
 create table Payment (
 	P_id int primary key auto_increment,
