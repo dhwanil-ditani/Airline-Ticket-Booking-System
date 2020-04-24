@@ -2,8 +2,8 @@ create table Passengers (
 	P_id int primary key auto_increment,
     first_name varchar(20) not null,
     last_name varchar(20) not null,
-    Phone_No decimal(10, 0) not null
-    unique (first_name, last_name, Phone_No);
+    Phone_No decimal(10, 0) not null,
+    unique (first_name, last_name, Phone_No)
 );
 
 create table Users (
@@ -47,13 +47,13 @@ create table Ticket (
 	T_id int primary key auto_increment,
     passenger_id int,
     flight_id int,
-    seat_no int,
+    -- seat_no int,
     payment_id int,
     foreign key (passenger_id) references Passengers(P_id),
     foreign key (flight_id) references Flight(F_id),
     foreign key (payment_id) references Payment(P_id),
-    foreign key (seat_no, flight_id) references Seats(S_no, flight_id),
+    -- foreign key (seat_no, flight_id) references Seats(S_no, flight_id),
     unique (passenger_id, flight_id),
-    unique (flight_id, seat_no),
+    -- unique (flight_id, seat_no),
     unique (flight_id, payment_id)
 );
