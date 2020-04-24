@@ -1,14 +1,13 @@
-function BookTicket(F_id, seat_no) {
+function BookTicket(F_id) {
     for (var i = 0; i < n_passengers; i++) {
         $.post("BookTickets.php",
         {
             passenger_id: passenger_ids[i],
             flight_id: F_id,
-            seat_no: seat_no,
             payment_id: payment_id
         },
         function (data) {
-            $("body").append(data);
+            $("div.result").append(data);
         });
     }
 }
@@ -25,6 +24,10 @@ $(document).ready(function () {
         },
         function (data) {
             $("div.result").html(data);
+            // BookTicket(flight_go);
+            // if (trip_type == "return") {
+            //     BookTicket(flight_ret);
+            // }
         });
     });
 });

@@ -7,8 +7,6 @@ $("#submit").click(function () {
     },
     function(data) {
         $("div.result").html(data);
-        username = $("#username").val();
-        loadUser();
     });
 });
 $("#back").click(function () {
