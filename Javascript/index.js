@@ -2,7 +2,9 @@ var username = "";
 var user_id = 0;
 var password = "";
 var amount = 0;
+var payment_id = 0;
 var passenger_ids = [];
+var n_passengers = 0;
 var flight_go = 0;
 var flight_ret = 0;
 var trip_type = "";
@@ -67,6 +69,8 @@ $(document).ready(function () {
 
     $("#logout").click(function() {
         username = "";
+        user_id = 0;
+        password = "";
         loadUser();
     });
 });

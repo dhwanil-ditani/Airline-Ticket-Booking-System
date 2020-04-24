@@ -33,6 +33,7 @@ else {
         echo "Invalid Input";
     }
 }
+
 echo "<script>passenger_ids.push('$Passenger_id')</script>";
 
 mysqli_close($conn);

@@ -1,5 +1,16 @@
-function BookTicket(passenger_id, flight_id, seat_no, payment_id) {
-
+function BookTicket(F_id, seat_no) {
+    for (var i = 0; i < n_passengers; i++) {
+        $.post("BookTickets.php",
+        {
+            passenger_id: passenger_ids[i],
+            flight_id: F_id,
+            seat_no: seat_no,
+            payment_id: payment_id
+        },
+        function (data) {
+            $("body").append(data);
+        });
+    }
 }
 
 $(document).ready(function () {

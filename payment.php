@@ -3,6 +3,7 @@
 $mode = $_POST["mode"];
 $amount = $_POST["amount"];
 $user_id = $_POST["user_id"];
+$payment_id = 0;
 
 $conn = mysqli_connect("localhost:3306", "devuser", "password", "Ticket_Booking");
 
@@ -14,6 +15,14 @@ $sql_query = "INSERT INTO Payment (mode, amount, user_id) VALUES ('$mode', $amou
 
 if (mysqli_query($conn, $sql_query)) {
     echo "Payment Successfull";
+    $sql_query = "SELECT P_id FROM Payment WHERE mode='$mode' AND amount='$amount' AND user_id='$user_id';";
+    $result = mysqli_query($sql_query);
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $payment_id = $row['P_id'];
+        }
+    }
+    echo "<script>payment_id = $payment_id</script>";
 }
 else {
     echo "Payment Failed";

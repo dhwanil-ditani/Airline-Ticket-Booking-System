@@ -19,7 +19,18 @@ function InsertPassenger(index) {
 }
 
 function Insert_Passengers() {
-    
+    for (var i=0; i < n_passengers; i++) {
+        var c = "passenger" + i;
+        $.post("passengers.php",
+        {
+            first_name: $("input." + c + "[name='first_name']").val(),
+            last_name: $("input." + c + "[name='last_name']").val(),
+            Phone_No: $("input." + c + "[name='Phone_No']").val()
+        },
+        function (data) {
+            $("body").append(data);
+        });
+    }
 }
 
 function InsertBookNowButton() {
@@ -66,6 +77,7 @@ $("document").ready(function() {
     date1 = $("#depart_date").val();
     date2 = $("#return_date").val();
     document.getElementById("submit_button").disabled = true; 
+    
     $(".dates").change(function() {
         date1 = $("#depart_date").val();
         date2 = $("#return_date").val();
@@ -93,18 +105,20 @@ $("document").ready(function() {
             $("div.book_now").html("");
             $("div.result").html(data);
             trip_type = $("input[name='trip_type']:checked").val();
+            
             var book_now = document.createElement('button');
             var button_text = document.createTextNode("Book Now");
             book_now.id = 'book_now';
             book_now.name = 'book_now';
             book_now.value = 'book_now';
             book_now.appendChild(button_text);
+            
             $("input[name='flight_go']").click(function () {
                 $("div.passengers").html("");
                 flight_go = Number($("input[name='flight_go']:checked").attr('value'));
                 if (trip_type == "return") {
                     if($("input[name='flight_ret']:checked").length > 0) {
-                        var n_passengers = $("select[name='passengers']").val();
+                        n_passengers = Number($("select[name='passengers']").val());
                         for (var i=0; i<n_passengers; i++) {
                             InsertPassenger(String(i));
                         }
@@ -113,7 +127,7 @@ $("document").ready(function() {
                     }
                 }
                 else {
-                    var n_passengers = $("select[name='passengers']").val();
+                    n_passengers = Number($("select[name='passengers']").val());
                     for (var i=0; i<n_passengers; i++) {
                         InsertPassenger(String(i));
                     }
@@ -126,7 +140,7 @@ $("document").ready(function() {
                 $("div.passengers").html("");
                 flight_ret = Number($("input[name='flight_ret']:checked").attr('value'));
                 if($("input[name='flight_go']:checked").length > 0) {
-                    var n_passengers = $("select[name='passengers']").val();
+                    n_passengers = Number($("select[name='passengers']").val());
                     for (var i=0; i<n_passengers; i++) {
                         InsertPassenger(String(i));
                     }
@@ -136,5 +150,4 @@ $("document").ready(function() {
             });
         });
     });
-    
 });
