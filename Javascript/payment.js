@@ -24,17 +24,14 @@ $(document).ready(function () {
         },
         function (data) {
             $("div.result").html(data);
-<<<<<<< HEAD
             BookTicket(flight_go);
             if (trip_type == "return") {
                 BookTicket(flight_ret);
             }
-=======
             // BookTicket(flight_go);
             // if (trip_type == "return") {
             //     BookTicket(flight_ret);
             // }
->>>>>>> 81c59441c24ff043ecaa057b394cad12fa875fa6
         });
     });
 });
