@@ -13,15 +13,17 @@ if (!$conn) {
 
 $sql_query = "INSERT INTO Payment (mode, amount, user_id) VALUES ('$mode', $amount, $user_id);";
 
-if (mysqli_query($conn, $sql_query)) {
-    $sql_query = "SELECT P_id FROM Payment;";
+$result = mysqli_query($conn, $sql_query);
+if ($result) {
+    $sql_query = "SELECT * FROM Payment;";
     $result = mysqli_query($conn, $sql_query);
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
             $payment_id = $row["P_id"];
+            echo "<div>" . $row["P_id"] . " " . $row["mode"] . " " . $row["amount"] . " " . $row["user_id"] . "</div>"; 
         }
     }
-    echo "<script>payment_id = " . $payment_id . "</script>";
+    echo "<div>" . $payment_id . "</div>";
 }
 else {
     echo "Payment Failed";

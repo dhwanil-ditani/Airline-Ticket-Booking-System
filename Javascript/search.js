@@ -100,6 +100,7 @@ $("document").ready(function() {
             return_date: $("input[name='return_date']").val()
         },
         function (data) {
+
             $("div.result").html("");
             $("div.passengers").html("");
             $("div.book_now").html("");

@@ -28,10 +28,6 @@ $(document).ready(function () {
             if (trip_type == "return") {
                 BookTicket(flight_ret);
             }
-            // BookTicket(flight_go);
-            // if (trip_type == "return") {
-            //     BookTicket(flight_ret);
-            // }
         });
     });
 });

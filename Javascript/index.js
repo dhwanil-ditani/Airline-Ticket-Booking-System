@@ -14,6 +14,7 @@ function loadSearch() {
         $("div.body").html(data);
     });
 }
+
 function loadUser() {
     if (username.length === 0) {
         $("div.logout").hide();
@@ -29,11 +30,13 @@ function loadUser() {
     }
     $("#display_username").text(username);
 }
+
 function loadlogin() {
     $.get("login.html", function (data) {
         $("div.body").html(data);
     });
 }
+
 function loadsignup() {
     $.get("SignUp.html", function (data) {
         $("div.body").html(data);
