@@ -21,12 +21,16 @@ function loadUser() {
         $("#display_username").hide();
         $("div.login").show();
         $("div.signup").show();
+        $("div.admin").hide();
     }
     else {
         $("div.logout").show();
         $("#display_username").show();
         $("div.login").hide();
         $("div.signup").hide();
+        if (username == "felafel") {
+            $("div.admin").show();
+        }
     }
     $("#display_username").text(username);
 }
@@ -75,5 +79,10 @@ $(document).ready(function () {
         user_id = 0;
         password = "";
         loadUser();
+    });
+
+    $("#admin").click(function() {
+        window.location.href = "admin.html";
+        return false;
     });
 });

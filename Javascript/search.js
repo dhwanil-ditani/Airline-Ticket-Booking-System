@@ -59,7 +59,7 @@ $("document").ready(function() {
         }
     });
 
-    $(".src_des").change(function() {
+    $(".fl_dropbox").change(function() {
         var selected_src = $("#src option:selected").val();
         var selected_des = $("#des option:selected").val();
         var thisID = $(this).prop("id");
@@ -93,14 +93,13 @@ $("document").ready(function() {
     $("#submit_button").click(function () {
         $.post("search.php",
         {
-            depart_date: $("input[name='depart_date']").val(),
-            src: $("select[name='src']").val(),
-            des: $("select[name='des']").val(),
+            depart_date: $("input[id='depart_date']").val(),
+            src: $("select[id='src']").val(),
+            des: $("select[id='des']").val(),
             trip_type: $("input[name='trip_type']:checked").val(),
-            return_date: $("input[name='return_date']").val()
+            return_date: $("input[id='return_date']").val()
         },
         function (data) {
-
             $("div.result").html("");
             $("div.passengers").html("");
             $("div.book_now").html("");
@@ -114,7 +113,7 @@ $("document").ready(function() {
             book_now.value = 'book_now';
             book_now.appendChild(button_text);
             
-            $("input[name='flight_go']").click(function () {
+            $("input[name='flight_go']").click(function() {
                 $("div.passengers").html("");
                 flight_go = Number($("input[name='flight_go']:checked").attr('value'));
                 if (trip_type == "return") {

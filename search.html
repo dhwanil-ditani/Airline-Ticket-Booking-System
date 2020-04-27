@@ -1,65 +1,182 @@
-<link rel="stylesheet" href="search.css">
 <script src="Javascript/search.js"></script>
-<div class='form'>
-    <div name="trip_type_div" id="trip_type_div">
-        <label for="trip_type_ow"><input type="radio" name="trip_type" id="trip_type_ow" class="trip_type_cl" value="one_way" required checked> ONE WAY</label>
-        <label for="trip_type_ret"><input type="radio" name="trip_type" id="trip_type_ret" class="trip_type_cl" value="return" required> RETURN</label>
+
+<style>
+    #form {
+        position: static;
+        top: 60px;
+        left: 0px;
+        background-image: linear-gradient(135deg, #48c6ef, #6f86d6);
+        border-color: white;
+        border-width: 15px;
+        border-radius: 25px;
+        margin: 0 auto;
+        width: 90vw;
+        max-width: 100%;
+        padding: 35px;
+    }
+
+    .space {
+        width: 5vw;
+    }
+    
+    .trip_type_labels {
+        font-weight: 800;
+        font-size: 14.5px;
+        margin-right: 25px;
+    }
+    
+    .labels {
+        font-weight: 800;
+    }
+    
+    .fl_dropbox {
+        margin-top: 10px;
+        width: 15vw;
+        height: 35px;
+    }
+
+    .dates {
+        margin-top: 10px;
+        width: 8.5vw;
+        height: 35px;
+    }
+
+    .passengers {
+        margin-top: 10px;
+        height: 35px;
+    }
+    
+    #trip_type_div {
+        display: flex;
+    }
+
+    #src_des_div {
+        display: flex;
+    }
+
+    #dates_div {
+        display: flex;
+    }
+
+    #passengers_div {
+        display: flex;
+    }
+    
+    #mid_bar {
+        width: 90vw;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 25px;
+    }
+
+    #submit_div {
+        display: flex;
+        justify-content: flex-end;
+    }
+    
+    #submit_button {
+        border: 0;
+        border-radius: 15px;
+        margin-top: 25px;
+        padding: 10px;
+        font-weight: 400;
+        color: white;
+        background-image: linear-gradient(45deg, #96c93d, #7B920A);
+        transition-duration: 0.2s;
+    }
+
+    #submit_button:hover {
+        transform: scale(1.05);
+        font-weight: 800;
+    }
+
+    #submit_button:disabled {
+        background-image: linear-gradient(45deg, darkgrey, darkgrey);
+        font-weight: 400;
+    }
+
+    #submit_button:disabled:hover {
+        background-image: radial-gradient( circle 738px at 7.4% 47.9%,  rgba(225,63,79,1) 0%, rgba(245,61,79,1) 47%, rgba(247,161,175,1) 90.2% );
+        transform: scale(1);
+    }
+</style>
+
+<div id="form">
+    <div id="trip_type_div">
+        <label for="trip_type_ow" class="trip_type_labels"><input type="radio" name="trip_type" id="trip_type_ow" class="trip_type_cl" value="one_way" required checked> ONE WAY</label>
+        <label for="trip_type_ret" class="trip_type_labels"> <input type="radio" name="trip_type" id="trip_type_ret" class="trip_type_cl" value="return" required> RETURN</label>
     </div>
-    <div id="mid_bar">
-    <div id="src_des">
-        <label for="src" id="src_label">FROM<br>
-        <select name="src" id="src" class="src_des" required>
-            <option disabled selected value="1">Choose city...</option>
-            <option name="AMD" id="AMD" value="Ahmedabad">Ahmedabad</option>
-            <option name="BLR" id="BLR" value="Banglore">Banglore</option>
-            <option name="MAA" id="MAA" value="Chennai">Chennai</option>
-            <option name="HYD" id="HYD" value="Hyderabad">Hyderabad</option>
-            <option name="JAI" id="JAI" value="Jaipur">Jaipur</option>
-            <option name="COK" id="COK" value="Kochi">Kochi</option>
-            <option name="CCU" id="CCU" value="Kolkata">Kolkata</option>
-            <option name="LKO" id="LKO" value="Lucknow">Lucknow</option>
-            <option name="BOM" id="BOM" value="Mumbai">Mumbai</option>
-            <option name="DEL" id="DEL" value="New Delhi">New Delhi</option>
-            <option name="PNY" id="PNY" value="Pondicherry">Pondicherry</option>
-            <option name="VNS" id="VNS" value="Varanasi">Varanasi</option>
-        </select></label>
-        <label for="des" id="des_label">TO<br>
-        <select name="des" id="des" class="src_des" required>
-            <option disabled selected value="2">Choose city...</option>
-            <option name="AMD" id="AMD" value="Ahmedabad">Ahmedabad</option>
-            <option name="BLR" id="BLR" value="Banglore">Banglore</option>
-            <option name="MAA" id="MAA" value="Chennai">Chennai</option>
-            <option name="HYD" id="HYD" value="Hyderabad">Hyderabad</option>
-            <option name="JAI" id="JAI" value="Jaipur">Jaipur</option>
-            <option name="COK" id="COK" value="Kochi">Kochi</option>
-            <option name="CCU" id="CCU" value="Kolkata">Kolkata</option>
-            <option name="LKO" id="LKO" value="Lucknow">Lucknow</option>
-            <option name="BOM" id="BOM" value="Mumbai">Mumbai</option>
-            <option name="DEL" id="DEL" value="New Delhi">New Delhi</option>
-            <option name="PNY" id="PNY" value="Pondicherry">Pondicherry</option>
-            <option name="VNS" id="VNS" value="Varanasi">Varanasi</option>
-        </select></label>
-    </div>
-    <div name="n_passengers" id="n_passengers">
-        <label for="passengers" id="passengers_label">PASSENGERS<br>
-        <select name="passengers" id="passengers" class="n_passengers" required>
-            <option value="1" selected>One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-            <option value="4">Four</option>
-        </select>
-        </label>
-    </div>
-    <div name="dates_div" id="dates_div">
-        <label id="depart_date_label" for="depart_date">DEPART DATE<br><input type="date" id="depart_date" name="depart_date" class="dates" required></label>
-        <label id="return_date_label" for="return_date">RETURN DATE<br><input type="date" id="return_date" name="return_date" class="dates" required></label>
-    </div>
-    </div>
+
     <br>
+
+    <div id="mid_bar">
+        <div id="src_des_div">
+            <label for="src" id="src_label" class="labels">FROM<br>
+                <select id="src" class="fl_dropbox" required>
+                    <option disabled selected value="1">Choose city...</option>
+                    <option name="AMD" id="AMD" value="Ahmedabad">Ahmedabad</option>
+                    <option name="BLR" id="BLR" value="Banglore">Banglore</option>
+                    <option name="MAA" id="MAA" value="Chennai">Chennai</option>
+                    <option name="HYD" id="HYD" value="Hyderabad">Hyderabad</option>
+                    <option name="JAI" id="JAI" value="Jaipur">Jaipur</option>
+                    <option name="COK" id="COK" value="Kochi">Kochi</option>
+                    <option name="CCU" id="CCU" value="Kolkata">Kolkata</option>
+                    <option name="LKO" id="LKO" value="Lucknow">Lucknow</option>
+                    <option name="BOM" id="BOM" value="Mumbai">Mumbai</option>
+                    <option name="DEL" id="DEL" value="New Delhi">New Delhi</option>
+                    <option name="PNY" id="PNY" value="Pondicherry">Pondicherry</option>
+                    <option name="VNS" id="VNS" value="Varanasi">Varanasi</option>
+                </select>
+            </label>
+            
+            <div class="space"></div>
+
+            <label for="des" id="des_label" class="labels">TO<br>
+                <select id="des" class="fl_dropbox" required>
+                    <option disabled selected value="2">Choose city...</option>
+                    <option name="AMD" id="AMD" value="Ahmedabad">Ahmedabad</option>
+                    <option name="BLR" id="BLR" value="Banglore">Banglore</option>
+                    <option name="MAA" id="MAA" value="Chennai">Chennai</option>
+                    <option name="HYD" id="HYD" value="Hyderabad">Hyderabad</option>
+                    <option name="JAI" id="JAI" value="Jaipur">Jaipur</option>
+                    <option name="COK" id="COK" value="Kochi">Kochi</option>
+                    <option name="CCU" id="CCU" value="Kolkata">Kolkata</option>
+                    <option name="LKO" id="LKO" value="Lucknow">Lucknow</option>
+                    <option name="BOM" id="BOM" value="Mumbai">Mumbai</option>
+                    <option name="DEL" id="DEL" value="New Delhi">New Delhi</option>
+                    <option name="PNY" id="PNY" value="Pondicherry">Pondicherry</option>
+                    <option name="VNS" id="VNS" value="Varanasi">Varanasi</option>
+                </select>
+            </label>
+        </div>
+
+        <div id="passengers_div">
+            <label for="passengers" class="labels">PASSENGERS<br>
+                <select id="passengers" class="passengers" required>
+                    <option value="1" selected>One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                    <option value="4">Four</option>
+                </select>
+            </label>
+        </div>
+
+        <div id="dates_div">
+            <label for="depart_date" id="depart_date_label" class="labels">DEPART DATE<br><input type="date" id="depart_date" class="dates" required></label>
+            <div class="space"></div>
+            <label for="return_date" id="return_date_label" class="labels">RETURN DATE<br><input type="date" id="return_date" class="dates" required></label>
+        </div>
+    </div>
     
     <br>
-    <div id="submit_div"><button type="submit" id="submit_button" class="submit_button">search.</button></div>
+    
+    <div id="submit_div">
+        <button id="submit_button">search.</button>
+    </div>
 </div>
+
 <div class="result"></div>
+
 <div class="passengers"></div>
+
 <div class="book_now"></div>
