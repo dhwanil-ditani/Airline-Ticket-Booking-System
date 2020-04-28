@@ -1,21 +1,26 @@
 function InsertPassenger(index) {
     var c = "passenger" + index;
+    var count = Number(index)+1;
     var div = document.createElement("div");
     div.className = c;
-    $("div.passengers").append(div);
+    $("#passengers_info").append(div);
     var first_name = document.createElement("input");
     first_name.type = "text";
     first_name.name = "first_name";
-    first_name.className = c;
+    first_name.placeholder = "PASSENGER " + (count);
+    first_name.className = c + " pass_inputs";
     var last_name = document.createElement("input");
     last_name.type = "text";
     last_name.name = "last_name";
-    last_name.className = c;
+    last_name.placeholder = "PASSENGER " + (count);
+    last_name.className = c + " pass_inputs";
     var Phone_No = document.createElement("input");
     Phone_No.type = "text";
     Phone_No.name = "Phone_No";
-    Phone_No.className = c;
-    $("div." + c).append("first_name: ", first_name, "last_name: ", last_name, "Phone_No: ", Phone_No);
+    Phone_No.placeholder = "PASSENGER " + (count);
+    Phone_No.className = c + " pass_inputs";
+    $("div." + c).append("<label class='labels'>FIRST NAME: <br></label>", first_name, "<br><label class='labels'>LAST NAME: <br></label>", last_name, "<br><label class='labels'>PHONE NUMBER: <br></label>", Phone_No);
+    $("div." + c).addClass("pass_info_ind");
 }
 
 function Insert_Passengers() {
@@ -34,7 +39,7 @@ function Insert_Passengers() {
 }
 
 function InsertBookNowButton() {
-    $("div.book_now").html("<button type='button' name='book_now' value='book_now' id='book_now'>Book Now</button>");
+    $("div.book_now").html("<div id='book_now_div'><button type='button' name='book_now' value='book_now' id='book_now'>book now!</button></div>");
     $("#book_now").click(function () {
         Insert_Passengers();
         loadpayment();
@@ -63,7 +68,7 @@ $("document").ready(function() {
         var selected_src = $("#src option:selected").val();
         var selected_des = $("#des option:selected").val();
         var thisID = $(this).prop("id");
-        $(".src_des option").each(function() {
+        $(".fl_dropbox option").each(function() {
             $(this).prop("disabled", false);
         });
         $("#src").each(function() {
@@ -90,7 +95,8 @@ $("document").ready(function() {
         }
     });
 
-    $("#submit_button").click(function () {
+    $("#submit_button").click(function() {
+        $(".pass_info").css('display', 'none');
         $.post("search.php",
         {
             depart_date: $("input[id='depart_date']").val(),
@@ -101,7 +107,7 @@ $("document").ready(function() {
         },
         function (data) {
             $("div.result").html("");
-            $("div.passengers").html("");
+            $("#passengers_info").html("");
             $("div.book_now").html("");
             $("div.result").html(data);
             trip_type = $("input[name='trip_type']:checked").val();
@@ -114,11 +120,12 @@ $("document").ready(function() {
             book_now.appendChild(button_text);
             
             $("input[name='flight_go']").click(function() {
-                $("div.passengers").html("");
+                $("#passengers_info").html("");
+                $(".pass_info").css("display", "inherit");
                 flight_go = Number($("input[name='flight_go']:checked").attr('value'));
                 if (trip_type == "return") {
                     if($("input[name='flight_ret']:checked").length > 0) {
-                        n_passengers = Number($("select[name='passengers']").val());
+                        n_passengers = Number($("select[id='passengers']").val());
                         for (var i=0; i<n_passengers; i++) {
                             InsertPassenger(String(i));
                         }
@@ -127,7 +134,7 @@ $("document").ready(function() {
                     }
                 }
                 else {
-                    n_passengers = Number($("select[name='passengers']").val());
+                    n_passengers = Number($("select[id='passengers']").val());
                     for (var i=0; i<n_passengers; i++) {
                         InsertPassenger(String(i));
                     }
@@ -137,10 +144,11 @@ $("document").ready(function() {
             });
 
             $("input[name='flight_ret']").click(function () {
-                $("div.passengers").html("");
+                $("#passengers_info").html("");
+                $(".pass_info").css("display", "inherit");
                 flight_ret = Number($("input[name='flight_ret']:checked").attr('value'));
                 if($("input[name='flight_go']:checked").length > 0) {
-                    n_passengers = Number($("select[name='passengers']").val());
+                    n_passengers = Number($("select[id='passengers']").val());
                     for (var i=0; i<n_passengers; i++) {
                         InsertPassenger(String(i));
                     }

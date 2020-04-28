@@ -24,9 +24,8 @@ if (mysqli_query($conn, $sql_query)) {
     echo "<script>payment_id = " . $payment_id . "</script>";
 }
 else {
-    echo "Payment Failed";
+    echo "<p class='labels' style='text-align: center'>PAYMENT FAILED.</p>";
 }
 
 mysqli_close($conn);
-
 ?>

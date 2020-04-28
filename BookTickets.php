@@ -8,19 +8,18 @@ $payment_id = $_POST['payment_id'];
 $conn = mysqli_connect("localhost:3306", "devuser", "password", "Ticket_Booking");
 
 if (!$conn) {
-    die("Connection Failed" . mysqli_connect_error());
+    die("Connectioecho "$sql_query";n Failed" . mysqli_connect_error());
 }
 
 // $sql_query = "INSERT INTO Ticket (passenger_id, flight_id, seat_no, payment_id) VALUES ($passenger_id, $flight_id, $seat_no, $payment_id);";
 $sql_query = "INSERT INTO Ticket (passenger_id, flight_id, payment_id) VALUES ($passenger_id, $flight_id, $payment_id);";
 // echo "$sql_query";
-echo "$sql_query";
+// echo "$sql_query";
 if (mysqli_query($conn, $sql_query)) {
-    echo "Ticket Booked Sucessfull";
+echo "<p class='labels' style='text-align: center'>TICKET(S) BOOKED SUCCESSFULLY.</p>";
 }
 else {
-    echo "Ticket Booking failed";
-    echo mysqli_error($conn);
+    echo "<p class='labels' style='text-align: center'>BOOKING FAILED.</p>";
 }
 
 mysqli_close($conn);
