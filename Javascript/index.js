@@ -102,10 +102,13 @@ $(document).ready(function () {
         password = "";
         loadUser();
         loadSearch();
+        $(".back_srch").css("display", "none");
     });
 
     $("#admin").click(function() {
         loadadmin();
+        $(".back_srch").css("display", "none");
+        $("div.bookedTickets button[name='bookedTickets']").css("display", "inherit");
     });
 
     $("div.bookedTickets button[name='bookedTickets']").click(function () {
