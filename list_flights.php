@@ -10,7 +10,7 @@ echo "
 <style>
 #list {
     position: relative;
-    top: 50px;
+    top: 75px;
     margin: 0 auto;
     border-collapse: collapse;
     border-radius: 30px;
