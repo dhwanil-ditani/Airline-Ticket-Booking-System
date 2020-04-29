@@ -74,7 +74,7 @@ function loadadmin() {
 function loadBookedTickets() {
     $.post("BookedTickets.php",
     {
-        user_id: 1
+        user_id: user_id
     },
     function(data) {
         $("div.body").html(data);
