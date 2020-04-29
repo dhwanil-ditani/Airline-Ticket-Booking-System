@@ -25,15 +25,60 @@ $result1 = mysqli_query($conn, $sql_query1);
 
 echo "
 <style> 
-div.ticket { 
+div.ticket_container { 
     background-color: #202020; 
     width: 75vw; 
-    margin: 7.5px auto; 
+    margin: 15px auto; 
     border-radius: 25px;
     padding: 25px;
-    padding-bottom: 10px;
-    background-image: radial-gradient( circle 523px at 7.1% 19.3%,  rgba(147,15,255,1) 2%, rgba(5,49,255,1) 100.7% );
-} </style>";
+    // padding-bottom: 10px;
+    background-image: radial-gradient( circle farthest-corner at 3.1% 6.8%,  rgba(199,0,59,1) 0%, rgba(255,88,53,1) 97.7% );
+}
+
+#ticket {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 25px;
+} 
+
+#depart_from, #arrive_at {
+    text-align  : center;
+}
+
+.city {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 22.5px;
+}
+
+.date {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.time {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+#cancel_booking {
+    margin-top: 15px;
+    background-color: transparent;
+    border-width: 0px;
+    font-weight: 400;
+    font-size: 15px;
+    transition-duration: 0.2s;
+    color: white;
+}
+
+#cancel_booking:hover {
+    transform: scale(1.05);
+    font-weight: 800;
+}
+</style>";
 
 if (mysqli_num_rows($result1) > 0) {
     while ($row1 = mysqli_fetch_assoc($result1)) {
@@ -49,8 +94,8 @@ if (mysqli_num_rows($result1) > 0) {
             }
         }
         else {
-            echo mysqli_error($conn);
-            echo $sql_query2;
+            // echo mysqli_error($conn);
+            // echo $sql_query2;
         }
 
         $sql_query3 = "SELECT * FROM Flight WHERE F_id=" . (int)$flight_id . "";
@@ -63,13 +108,13 @@ if (mysqli_num_rows($result1) > 0) {
                 $depart_date = $row3['depart_date'];
                 $depart_time = $row3['depart_time'];
                 $arrive_date = $row3['arrive_date'];
-                $arrive_date = $row3['arrive_time'];
+                $arrive_time = $row3['arrive_time'];
                 $amount = $row3['amount'];
             }
         }
         else {
-            echo mysqli_error($conn);
-            echo $sql_query3;
+            // echo mysqli_error($conn);
+            // echo $sql_query3;
         }
 
 
@@ -83,18 +128,27 @@ if (mysqli_num_rows($result1) > 0) {
             }
         }
         else {
-            echo mysqli_error($conn);
-            echo $sql_query4;
+            // echo mysqli_error($conn);
+            // echo $sql_query4;
         }
 
         echo "
-        <div class='ticket'>
-            <div>" . $src . " -> " . $des . "</div>
-            <div>" . $depart_date . " -> " . $arrive_date . "</div>
-            <div>" . $depart_time . " -> " . $arrive_time . "</div>
-            <div>Amount: " . $amount . "</div>
-            <div>Name: " . $first_name . " " . $last_name . "</div>
-            <div>Flight ID: " . $flight_id . "</div>
+        <div class='ticket_container'>
+            <div id='ticket'>
+                <div id='depart_from'>
+                    DEPARTING FROM <label class='city'> " . $src . "</label><br>
+                    ON <label class='date'> " . $depart_date . "</label><br>
+                    AT <label class='time'> " . $depart_time . "</label><br>
+                </div>
+                
+                <div id='arrive_at'>
+                    ARRIVING AT <label class='city'> " . $des . "</label><br>
+                    ON <label class='date'> " . $arrive_date . "</label><br>
+                    AT <label class='time'> " . $arrive_time . "</label><br>
+                </div>
+            </div>
+            <div style='margin-top:15px;text-align:center;'><b>PASSENGER: </b>" . $first_name . " " . $last_name . "</div>
+            <div style='text-align:center;' id='cancel_booking_div'><button id='cancel_booking'><b>CANCEL BOOKING</b></button></div>
         </div>  
         ";
     }
@@ -106,4 +160,10 @@ else {
 
 
 mysqli_close($conn);
+//             <div>" . $depart_date . " -> " . $arrive_date . "</div>
+//             <div>" . $depart_time . " -> " . $arrive_time . "</div>
+//             <div>Name: " . $first_name . " " . $last_name . "</div>
+//             <div>Flight ID: " . $flight_id . "</div>
+
+// <div>Amount: " . $amount . "</div>
 ?>

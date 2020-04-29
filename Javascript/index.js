@@ -74,7 +74,7 @@ function loadadmin() {
 function loadBookedTickets() {
     $.post("BookedTickets.php",
     {
-        user_id: user_id
+        user_id: 1
     },
     function(data) {
         $("div.body").html(data);
@@ -110,5 +110,13 @@ $(document).ready(function () {
 
     $("div.bookedTickets button[name='bookedTickets']").click(function () {
         loadBookedTickets();
+        $("div.bookedTickets button[name='bookedTickets']").css("display", "none");
+        $(".back_srch").css("display", "inherit");
+    });
+
+    $(".back_srch").click(function() {
+        loadSearch();
+        $(".back_srch").css("display", "none");
+        $("div.bookedTickets button[name='bookedTickets']").css("display", "inherit");
     });
 });
