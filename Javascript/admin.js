@@ -23,6 +23,8 @@ function loadChangePrices() {
 }
 
 $(document).ready(function() {
+    $("#user_id").append(username);
+    
     $("#list_flights_button").click(function() {
         loadListFlights();
     });

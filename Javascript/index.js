@@ -85,7 +85,7 @@ $(document).ready(function () {
     $.get("logo.html", function(data) {
         $("div.logo").html(data);
     });
-    loadSearch();
+    loadadmin();
     loadUser();
     $("#login").click(function() {
         loadlogin();
