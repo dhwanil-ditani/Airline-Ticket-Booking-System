@@ -28,4 +28,8 @@ $(document).ready(function() {
     $("#change_prices_button").click(function() {
         loadChangePrices();
     });
+
+    $("#search_page_button").click(function() {
+        loadSearch();
+    });
 });

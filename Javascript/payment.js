@@ -36,7 +36,7 @@ $(document).ready(function () {
 
     $("span[name='amount']").append(amount);
     $("input[name='user_id']").attr('value', user_id);
-    $("#pay").click(function () {
+    $("#pay").click(function() {
         $.post("payment.php",
         {
             mode : $("#mode option:selected").val(),
@@ -54,5 +54,8 @@ $(document).ready(function () {
                 BookTicket(flight_ret);
             }
         });
+    });
+    $("#cancel").click(function() {
+        loadSearch();
     });
 });

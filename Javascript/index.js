@@ -101,6 +101,7 @@ $(document).ready(function () {
         user_id = 0;
         password = "";
         loadUser();
+        loadSearch();
     });
 
     $("#admin").click(function() {
