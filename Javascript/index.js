@@ -22,6 +22,7 @@ function loadUser() {
         $("div.login").show();
         $("div.signup").show();
         $("div.admin").hide();
+        $("div.bookedTickets").hide();
     }
     else {
         $("div.logout").show();
@@ -31,6 +32,7 @@ function loadUser() {
         if (username == "felafel") {
             $("div.admin").show();
         }
+        $("div.bookedTickets").show();
     }
     $("#display_username").text(username);
 }
@@ -59,6 +61,26 @@ function checklogin() {
     }
 }
 
+function loadadmin() {
+    $.post("admin.php",
+    {
+        submit: "submit"
+    },
+    function (data) {
+        $("div.body").html(data);
+    });
+}
+
+function loadBookedTickets() {
+    $.post("BookedTickets.php",
+    {
+        user_id: user_id
+    },
+    function(data) {
+        $("div.body").html(data);
+    });
+}
+
 $(document).ready(function () {
     $.get("logo.html", function(data) {
         $("div.logo").html(data);
@@ -82,7 +104,10 @@ $(document).ready(function () {
     });
 
     $("#admin").click(function() {
-        window.location.href = "admin.html";
-        return false;
+        loadadmin();
+    });
+
+    $("div.bookedTickets button[name='bookedTickets']").click(function () {
+        loadBookedTickets();
     });
 });

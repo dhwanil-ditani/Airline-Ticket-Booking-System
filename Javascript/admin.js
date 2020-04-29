@@ -17,10 +17,6 @@ function loadChangePrices() {
 }
 
 $(document).ready(function() {
-    $.get("logo.html", function(data) {
-        $("div.logo").html(data);
-    });
-
     $("#add_flights_button").click(function() {
         loadAddFlights();
     });

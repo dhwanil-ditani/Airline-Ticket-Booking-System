@@ -8,7 +8,7 @@ $payment_id = $_POST['payment_id'];
 $conn = mysqli_connect("localhost:3306", "devuser", "password", "Ticket_Booking");
 
 if (!$conn) {
-    die("Connectioecho "$sql_query";n Failed" . mysqli_connect_error());
+    die("Connectioecho " . $sql_query . ";n Failed" . mysqli_connect_error());
 }
 
 // $sql_query = "INSERT INTO Ticket (passenger_id, flight_id, seat_no, payment_id) VALUES ($passenger_id, $flight_id, $seat_no, $payment_id);";

@@ -1,54 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="Javascript/admin.js"></script>
-    <title>admin.</title>
-    <style>
-        body {
-            background-color: #202020;
-            color: white;
-            font-family: 'Inter', sans-serif;
-        }
+<script src="Javascript/admin.js"></script>
+<style>
+    #admin_page {
+        background-color: #202020;
+        color: white;
+        font-family: 'Inter', sans-serif;
+    }
 
-        #navBar {
-            background-image: radial-gradient( circle farthest-corner at 2.9% 7.7%,  rgba(164,14,176,1) 0%, rgba(254,101,101,1) 90% );
-            width: 100vw;
-            height: 50px;
-            position: absolute;
-            top: 90px;
-            right: 0px;
-            display: flex;
-        }
+    #navBar {
+        background-image: radial-gradient( circle farthest-corner at 2.9% 7.7%,  rgba(164,14,176,1) 0%, rgba(254,101,101,1) 90% );
+        width: 100vw;
+        height: 50px;
+        position: absolute;
+        top: 90px;
+        right: 0px;
+        display: flex;
+    }
 
-        .navButton {
-            background-color: transparent;
-            color: white;
-            border: 0px;
-            height: 50px;
-            font-weight: 600;
-            font-size: 15px;
-            text-transform: uppercase;
-            transition-duration: 0.2s;
-            padding-left: 25px;
-        }
+    .navButton {
+        background-color: transparent;
+        color: white;
+        border: 0px;
+        height: 50px;
+        font-weight: 600;
+        font-size: 15px;
+        text-transform: uppercase;
+        transition-duration: 0.2s;
+        padding-left: 25px;
+    }
 
-        .navButton:hover {
-            transform: scale(1.05);
-            font-weight: 800;
-        }
-    </style>
-</head>
-<body>
-    <div class="logo"></div>
+    .navButton:hover {
+        transform: scale(1.05);
+        font-weight: 800;
+    }
+</style>
+<div id='admin_page'>
     <div id="navBar">
         <button id="add_flights_button" class="navButton">add flights</button>
         <button id="remove_flights_button" class="navButton">remove flights</button>
         <button id="change_prices_button" class="navButton">change prices</button>
     </div>
     <div id="container"></div>
-</body>
-</html>
+</div>
