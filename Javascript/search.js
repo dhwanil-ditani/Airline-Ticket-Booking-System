@@ -24,6 +24,7 @@ function InsertPassenger(index) {
 }
 
 function Insert_Passengers() {
+    passenger_ids = [];
     for (var i=0; i < n_passengers; i++) {
         var c = "passenger" + i;
         $.post("passengers.php",
@@ -47,9 +48,9 @@ function InsertBookNowButton() {
 }
 
 function UpdateAmount() {
-    amount = Number($("span.amount." + flight_go).html());
+    amount = Number($("span.amount." + flight_go).html()) * n_passengers;
     if (trip_type == "return") {
-        amount += Number($("span.amount." + flight_ret).html());
+        amount += Number($("span.amount." + flight_ret).html()) * n_passengers;
     }
 }
 

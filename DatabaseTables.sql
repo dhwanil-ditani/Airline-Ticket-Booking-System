@@ -55,5 +55,5 @@ create table Ticket (
     -- foreign key (seat_no, flight_id) references Seats(S_no, flight_id),
     unique (passenger_id, flight_id),
     -- unique (flight_id, seat_no),
-    unique (flight_id, payment_id)
+    unique (flight_id, passenger_id, payment_id)
 );
