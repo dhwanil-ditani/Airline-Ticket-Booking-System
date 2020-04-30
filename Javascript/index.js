@@ -74,10 +74,34 @@ function loadadmin() {
 function loadBookedTickets() {
     $.post("BookedTickets.php",
     {
-        user_id: 1
+        user_id: user_id
     },
     function(data) {
         $("div.body").html(data);
+        var noOfFlight = Number($("#noOfFlight").text());
+        var i;
+        for (i = 1; i <= noOfFlight; i++) {
+            // var ticket_id = Number($("div.ticket_container." + i + " label.ticket_id").text());
+            // var payment_id = Number($("div.ticket_container." + i + " label.payment_id").text());
+            $("button."+ i).click(function () {
+                id = Number($(this).attr('class'));
+                ticket_id = Number($("label.ticket_id." + id).text());
+                payment_id = Number($("label.payment_id." + id).text());
+                cancelTicket(ticket_id, payment_id);
+                loadBookedTickets();
+            });
+        }
+    });
+}
+
+function cancelTicket(ticket_id, payment_id) {
+    $.post("cancelTickets.php",
+    {
+        ticket_id: ticket_id,
+        payment_id: payment_id
+    }, 
+    function(data) {
+        $("div.body").append(data);
     });
 }
 

@@ -2,6 +2,7 @@
 
 $user_id = $_POST['user_id'];
 $payment_id = "";
+$ticket_id = "";
 $passenger_id = "";
 $flight_id = "";
 $src = "";
@@ -79,9 +80,10 @@ div.ticket_container {
     font-weight: 800;
 }
 </style>";
-
+$i = 0;
 if (mysqli_num_rows($result1) > 0) {
     while ($row1 = mysqli_fetch_assoc($result1)) {
+        $i = $i + 1;
         $payment_id = $row1['P_id'];
 
         $sql_query2 = "SELECT * FROM Ticket WHERE payment_id=" . (int)$payment_id . "";
@@ -89,14 +91,15 @@ if (mysqli_num_rows($result1) > 0) {
 
         if (mysqli_num_rows($result2) > 0) {
             while ($row2 = mysqli_fetch_assoc($result2)) {
+                $ticket_id = $row2['T_id'];
                 $passenger_id = $row2['passenger_id'];
                 $flight_id = $row2['flight_id'];
             }
         }
-        else {
-            // echo mysqli_error($conn);
-            // echo $sql_query2;
-        }
+        // else {
+        //     echo mysqli_error($conn);
+        //     echo $sql_query2;
+        // }
 
         $sql_query3 = "SELECT * FROM Flight WHERE F_id=" . (int)$flight_id . "";
         $result3 = mysqli_query($conn, $sql_query3);
@@ -112,10 +115,10 @@ if (mysqli_num_rows($result1) > 0) {
                 $amount = $row3['amount'];
             }
         }
-        else {
-            // echo mysqli_error($conn);
-            // echo $sql_query3;
-        }
+        // else {
+        //     echo mysqli_error($conn);
+        //     echo $sql_query3;
+        // }
 
 
         $sql_query4 = "SELECT * FROM Passengers WHERE P_id=" . (int)$passenger_id . "";
@@ -127,13 +130,13 @@ if (mysqli_num_rows($result1) > 0) {
                 $last_name = $row4['last_name'];
             }
         }
-        else {
-            // echo mysqli_error($conn);
-            // echo $sql_query4;
-        }
+        // else {
+        //     echo mysqli_error($conn);
+        //     echo $sql_query4;
+        // }
 
         echo "
-        <div class='ticket_container'>
+        <div class='ticket_container " . $i . "'>
             <div id='ticket'>
                 <div id='depart_from'>
                     DEPARTING FROM <label class='city'> " . $src . "</label><br>
@@ -148,22 +151,20 @@ if (mysqli_num_rows($result1) > 0) {
                 </div>
             </div>
             <div style='margin-top:15px;text-align:center;'><b>PASSENGER: </b>" . $first_name . " " . $last_name . "</div>
-            <div style='text-align:center;' id='cancel_booking_div'><button id='cancel_booking'><b>CANCEL BOOKING</b></button></div>
-        </div>  
+            <div style='margin-top:15px;text-align:center;'>Ticket ID: <label class='ticket_id " . $i . "'>" . $ticket_id . "</label></div>
+            <div style='margin-top:15px;text-align:center;'>Payment ID: <label class='payment_id " . $i . "'>" . $payment_id . "</label></div>
+            <div style='text-align:center;' id='cancel_booking_div'><button class='" . $i . "' id='cancel_booking'><b>CANCEL BOOKING</b></button></div>
+        </div>
         ";
     }
 }
-else {
-    echo mysqli_error($conn);
-    echo $sql_query;
-}
+// else {
+//     echo mysqli_error($conn);
+//     echo $sql_query1;
+// }
 
+echo "<div id='noOfFlight' hidden>" . $i . "</div>";
 
 mysqli_close($conn);
-//             <div>" . $depart_date . " -> " . $arrive_date . "</div>
-//             <div>" . $depart_time . " -> " . $arrive_time . "</div>
-//             <div>Name: " . $first_name . " " . $last_name . "</div>
-//             <div>Flight ID: " . $flight_id . "</div>
 
-// <div>Amount: " . $amount . "</div>
 ?>
