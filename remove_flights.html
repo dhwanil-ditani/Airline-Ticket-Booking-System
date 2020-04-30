@@ -17,6 +17,7 @@
 
         $("#search_by").change(function() {
             $("#search").css("display", "inherit");
+            $("#remove_div").css("display", "none");
             $("#search").prop("disabled", false);
             $("#result").html("");
 
@@ -159,7 +160,7 @@
     #result {
         color: white;
         position: relative;
-        top: 65px;
+        top: 95px;
         width: 60vw;
         margin: 0 auto;
     }
@@ -167,7 +168,7 @@
     #remove_div {
         text-align: center;
         position: relative;
-        top: 90px;
+        top: 120px;
         display: none;
     }
     
@@ -189,7 +190,7 @@
 
     #query_result {
         position: relative;
-        top: 65px;
+        top: 95px;
         text-align: center;
         display: none;
     }

@@ -151,17 +151,16 @@ if (mysqli_num_rows($result1) > 0) {
                 </div>
             </div>
             <div style='margin-top:15px;text-align:center;'><b>PASSENGER: </b>" . $first_name . " " . $last_name . "</div>
-            <div style='margin-top:15px;text-align:center;'>Ticket ID: <label class='ticket_id " . $i . "'>" . $ticket_id . "</label></div>
-            <div style='margin-top:15px;text-align:center;'>Payment ID: <label class='payment_id " . $i . "'>" . $payment_id . "</label></div>
+            <div style='margin-top:15px;text-align:center;display:none;'>Ticket ID: <label class='ticket_id " . $i . "'>" . $ticket_id . "</label></div>
+            <div style='margin-top:15px;text-align:center;display:none;'>Payment ID: <label class='payment_id " . $i . "'>" . $payment_id . "</label></div>
             <div style='text-align:center;' id='cancel_booking_div'><button class='" . $i . "' id='cancel_booking'><b>CANCEL BOOKING</b></button></div>
         </div>
         ";
     }
 }
-// else {
-//     echo mysqli_error($conn);
-//     echo $sql_query1;
-// }
+else {
+    echo "<h3 style='text-align: center;'>NO TICKETS BOOKED YET.</h3>";
+}
 
 echo "<div id='noOfFlight' hidden>" . $i . "</div>";
 
