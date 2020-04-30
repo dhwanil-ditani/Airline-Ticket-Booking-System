@@ -37,13 +37,26 @@
         margin-left: auto;
         margin-right: 17.5px;
     }
+    #splash {
+        position: relative;
+        top: 100px;
+        color: white;
+        margin-left: 75px;
+        font-size: 50px;
+        font-weight: 800;
+    }
 </style>
 <div id='admin_page'>
     <div id="navBar">
+        <button id="list_flights_button" class="navButton">list all flights</button>
         <button id="add_flights_button" class="navButton">add flights</button>
         <button id="remove_flights_button" class="navButton">remove flights</button>
         <button id="change_prices_button" class="navButton">change prices</button>
         <button id="search_page_button" class="navButton search">back to search</button>
     </div>
-    <div id="container"></div>
+    <div id="container">
+        <div id="splash">
+            WELCOME, <span id='user_id'></span>.
+        </div>
+    </div>
 </div>

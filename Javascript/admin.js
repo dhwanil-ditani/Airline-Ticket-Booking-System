@@ -1,3 +1,9 @@
+function loadListFlights() {
+    $.get("list_flights.php", function(data) {
+        $("#container").html(data);
+    });
+}
+
 function loadAddFlights() {
     $.get("add_flights.html", function(data) {
         $("#container").html(data);
@@ -17,6 +23,12 @@ function loadChangePrices() {
 }
 
 $(document).ready(function() {
+    $("#user_id").append(username);
+    
+    $("#list_flights_button").click(function() {
+        loadListFlights();
+    });
+    
     $("#add_flights_button").click(function() {
         loadAddFlights();
     });
